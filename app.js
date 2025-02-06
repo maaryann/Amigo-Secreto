@@ -1,11 +1,19 @@
 let amigos = [];
 
+document.getElementById("agregar").addEventListener("click", agregarAmigo);
+document.getElementById("sortear").addEventListener("click", sortearAmigo);
+
 function agregarAmigo() {
     let input = document.getElementById("amigo");
     let nombre = input.value.trim();
 
     if (nombre === "") {
         alert("Por favor, ingresa un nombre válido.");
+        return;
+    }
+
+    if (amigos.includes(nombre)) {
+        alert("Este nombre ya ha sido agregado.");
         return;
     }
 
@@ -35,3 +43,4 @@ function sortearAmigo() {
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = `<h3>🎉 El amigo secreto es: ${amigos[indiceAleatorio]} 🎉</h3>`;
 }
+
